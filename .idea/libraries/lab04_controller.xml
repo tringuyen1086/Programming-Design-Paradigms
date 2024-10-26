@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lab04-controller">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Labs/lab04-controller/lab04-controller-000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Labs/lab04-controller/lab04-controller-65-18.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Labs/lab04-controller/lab04-controller-67-18.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Labs/lab04-controller/lab04-controller-66-17.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Labs/lab04-controller/lab04-controller-68-18.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab00-getting-started0/lab00-getting-started0.iml" filepath="$PROJECT_DIR$/Labs/lab00-getting-started0/lab00-getting-started0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab01-stevenson/lab01-stevenson.iml" filepath="$PROJECT_DIR$/Labs/lab01-stevenson/lab01-stevenson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab02-transmissions/lab02-transmissions.iml" filepath="$PROJECT_DIR$/Labs/lab02-transmissions/lab02-transmissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab03-model/lab03-model.iml" filepath="$PROJECT_DIR$/Labs/lab03-model/lab03-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab04-controller/lab04-controller.iml" filepath="$PROJECT_DIR$/Labs/lab04-controller/lab04-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab05-questions/lab05-questions.iml" filepath="$PROJECT_DIR$/Labs/lab05-questions/lab05-questions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab06-sentences/lab06-sentences.iml" filepath="$PROJECT_DIR$/Labs/lab06-sentences/lab06-sentences.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/lab07-polynomials/lab07-polynomials.iml" filepath="$PROJECT_DIR$/Labs/lab07-polynomials/lab07-polynomials.iml" />
+    </modules>
+  </component>
+</project>
