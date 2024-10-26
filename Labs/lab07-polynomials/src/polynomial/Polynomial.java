@@ -23,10 +23,10 @@ public interface Polynomial {
    * Add a term to this polynomial with the specified coefficient and power.
    *
    * @param coefficient the coefficient of the term to be added
-   * @param power       the power of the term to be added
+   * @param degree       the power of the term to be added
    * @throws IllegalArgumentException if the power is negative
    */
-  void addTerm(int coefficient, int power) throws IllegalArgumentException;
+  void addTerm(int coefficient, int degree) throws IllegalArgumentException;
 
   /**
    * Determines if this polynomial is the same as the parameter polynomial.
@@ -48,10 +48,10 @@ public interface Polynomial {
   /**
    * Return the coefficient of the term with the given power.
    *
-   * @param power the power whose coefficient is sought
+   * @param degree the power whose coefficient is sought
    * @return the coefficient at the given power
    */
-  int getCoefficient(int power);
+  int getCoefficient(int degree);
 
   /**
    * Get the degree of this polynomial.
