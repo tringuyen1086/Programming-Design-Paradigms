@@ -527,7 +527,6 @@ public class PolynomialImplTest {
     assertEquals("-6x^3 -5x^2 +5x^1 -12", result.toString());
   }
 
-
   /**
    * Tests adding two polynomials
    * where terms of opposite coefficients result in zero for some terms.
@@ -551,7 +550,6 @@ public class PolynomialImplTest {
     assertEquals("4x^3 +3x^1 +2", result.toString());
   }
 
-
   /**
    * Tests that adding terms with negative powers in the addTerm method
    * throws an exception.
@@ -570,7 +568,6 @@ public class PolynomialImplTest {
     emptyPoly.addTerm(3, 2);
     assertEquals("3x^2", emptyPoly.toString());
   }
-
 
   /**
    * Tests adding a term with an existing power to a polynomial.
@@ -681,6 +678,10 @@ public class PolynomialImplTest {
     assertEquals("0", poly.toString());
   }
 
+  /**
+   * Tests the isSame method to check if two polynomials
+   * with identical terms, but different term order, are considered equivalent.
+   */
   @Test
   public void testIsSame() {
     Polynomial poly4 = new PolynomialImpl("-5 +4x^3 +3x^1");
@@ -1350,6 +1351,11 @@ public class PolynomialImplTest {
     assertEquals("0", emptyPoly.toString());
   }
 
+  /**
+   * Tests the toString method to ensure that
+   * the polynomial string representation is formatted correctly
+   * by removing extra spaces between terms and coefficients.
+   */
   @Test
   public void testPolynomialString() {
     Polynomial poly = new PolynomialImpl("3x^2 + 4x^1 - 2");
