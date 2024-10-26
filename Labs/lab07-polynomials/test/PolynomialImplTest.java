@@ -1317,7 +1317,7 @@ public class PolynomialImplTest {
   }
 
   /**
-   * Tests the {@code toString} method for edge cases:
+   * Tests the {@code toString} method for edge cases.
    * <ul>
    *   <li>A polynomial with a single term.</li>
    *   <li>A polynomial with a constant term only.</li>

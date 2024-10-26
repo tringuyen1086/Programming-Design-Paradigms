@@ -38,7 +38,7 @@ public class PolynomialImpl implements Polynomial {
       String term = scanner.next().trim();
 
       // Skip isolated "+" or "-" symbols resulting from extra spaces
-      if (term.equals("+") || term.equals("-")) {
+      if (("+").equals(term) || ("-").equals(term)) {
         if (scanner.hasNext()) {
           // Append the next part to form a valid term
           term += scanner.next().trim();
@@ -65,7 +65,7 @@ public class PolynomialImpl implements Polynomial {
   private void parseTerm(String term) {
     term = term.trim();
 
-    if (term.isEmpty() || term.equals("+") || term.equals("-")) {
+    if (term.isEmpty() || ("+").equals(term) || ("-").equals(term)) {
       throw new IllegalArgumentException("Invalid term format: " + term);
     }
 
@@ -81,18 +81,18 @@ public class PolynomialImpl implements Polynomial {
     }
 
     // Check for presence of 'x' and set coefficient/power accordingly
-    int xIndex = term.indexOf('x');
-    if (xIndex == -1) {
+    int indexOfX = term.indexOf('x');
+    if (indexOfX == -1) {
       // Constant term
       coefficient *= Integer.parseInt(term);
     } else {
-      String coeffStr = term.substring(0, xIndex).trim();
+      String coeffStr = term.substring(0, indexOfX).trim();
       if (!coeffStr.isEmpty()) {
         coefficient *= Integer.parseInt(coeffStr);
       }
       // Check for power notation
-      if (xIndex + 1 < term.length() && term.charAt(xIndex + 1) == '^') {
-        power = Integer.parseInt(term.substring(xIndex + 2).trim());
+      if (indexOfX + 1 < term.length() && term.charAt(indexOfX + 1) == '^') {
+        power = Integer.parseInt(term.substring(indexOfX + 2).trim());
       } else {
         power = 1;
       }

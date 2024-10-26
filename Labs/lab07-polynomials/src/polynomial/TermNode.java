@@ -36,7 +36,7 @@ public class TermNode implements PolynomialNode {
    * of the polynomial structure.
    *
    * @return the next {@code PolynomialNode} in the linked list,
-   * or {@code null} if this is the last node.
+    or {@code null} if this is the last node.
    */
   public PolynomialNode getNext() {
     return this.next;
