@@ -22,13 +22,10 @@ public class PolynomialImpl implements Polynomial {
 
   /**
    * Constructor that parses a polynomial string to initialize the polynomial.
-   * The string should represent terms in a valid polynomial format,
-   * with coefficients and powers separated by spaces.
-   * Extra spaces between terms or symbols are allowed.
    *
-   * @param polyStr the polynomial string to parse, such as "3x^2 + 4x - 2".
+   * @param polyStr the polynomial string to parse
    * @throws IllegalArgumentException if the term format is invalid
-    or contains negative powers.
+    or contains negative powers
    */
   public PolynomialImpl(String polyStr) throws IllegalArgumentException {
     this.head = new EmptyNode();
@@ -37,11 +34,16 @@ public class PolynomialImpl implements Polynomial {
     while (scanner.hasNext()) {
       String term = scanner.next().trim();
 
+      // Check for invalid combinations of symbols like "+-" or "-+" in the term
+      if (term.matches(".*[+-]{2,}.*")) {
+        throw new IllegalArgumentException("Invalid term format "
+                + "with consecutive symbols: " + term);
+      }
+
       // Skip isolated "+" or "-" symbols resulting from extra spaces
-      if (("+").equals(term) || ("-").equals(term)) {
+      if (term.equals("+") || term.equals("-")) {
         if (scanner.hasNext()) {
-          // Append the next part to form a valid term
-          term += scanner.next().trim();
+          term += scanner.next().trim();  // Append the next part to form a valid term
         } else {
           continue;  // Ignore isolated symbol if no term follows
         }

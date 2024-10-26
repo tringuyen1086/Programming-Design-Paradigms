@@ -34,6 +34,20 @@ public class PolynomialImplTest {
   }
 
   /**
+   * Test that an invalid polynomial string format throws an IllegalArgumentException.
+   * This test specifically checks for invalid consecutive signs (e.g., "+-" or "-+").
+   */
+  @Test
+  public void testInvalidPolynomialCreationByString() {
+    String invalidPolyStr = "-3x^3 +-2x^5 -3 +12x^1";
+
+    // Expect IllegalArgumentException due to invalid formatting
+    assertThrows(IllegalArgumentException.class, () -> {
+      Polynomial poly = new PolynomialImpl(invalidPolyStr);
+    });
+  }
+
+  /**
    * Tests the default constructor to ensure it initializes as an empty polynomial.
    * Expected output: "0" for an empty polynomial.
    */
