@@ -834,8 +834,8 @@ public class PolynomialImplTest {
       @Override
       public int getCoefficient(int power) {
         return 0;
-
       }
+
       @Override
       public int getDegree() {
         return 0;
