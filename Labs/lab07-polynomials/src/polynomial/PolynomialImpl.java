@@ -182,29 +182,24 @@ public class PolynomialImpl implements Polynomial {
         int power = termNode.getPower();
 
         if (coefficient != 0) { // Skip zero coefficients
-          // Handle the sign and coefficient display based on position and value
           if (isFirstTerm) {
             if (coefficient == -1 && power > 0) {
-              result.append("-");  // Append "-" only if negative
+              result.append("-");
             } else if (coefficient != 1 || power == 0) {
-              result.append(coefficient);  // Append coefficient if it's not 1 or if it's constant
+              result.append(coefficient);
             }
             isFirstTerm = false;
           } else {
-            if (coefficient > 0) {
-              result.append(" + ");
-            } else {
-              result.append(" - ");
-            }
+            result.append(coefficient > 0 ? " +" : " -");
             if (Math.abs(coefficient) != 1 || power == 0) {
               result.append(Math.abs(coefficient));
             }
           }
 
-          // Append "x" and power correctly
+          // Append "x" and power
           if (power > 0) {
             result.append("x");
-            if (power > 1 || power == 1) {  // Include "^1" explicitly if power is 1
+            if (power > 1 || power == 1) { // Always append "^1" for linear terms
               result.append("^").append(power);
             }
           }
@@ -213,7 +208,6 @@ public class PolynomialImpl implements Polynomial {
       currentNode = currentNode.getNext();
     }
 
-    // Return result or "0" if no terms were added
-    return result.length() > 0 ? result.toString().trim() : "0";
+    return result.length() > 0 ? result.toString() : "0";
   }
 }
