@@ -41,7 +41,7 @@ public class PolynomialImpl implements Polynomial {
       }
 
       // Skip isolated "+" or "-" symbols resulting from extra spaces
-      if (term.equals("+") || term.equals("-")) {
+      if (("+").equals(term) || ("-").equals(term)) {
         if (scanner.hasNext()) {
           term += scanner.next().trim();  // Append the next part to form a valid term
         } else {
@@ -184,31 +184,27 @@ public class PolynomialImpl implements Polynomial {
         if (coefficient != 0) { // Skip zero coefficients
           // Handle the sign and coefficient display based on position and value
           if (isFirstTerm) {
-            // First term, only add "-" if negative
             if (coefficient == -1 && power > 0) {
-              result.append("-");
+              result.append("-");  // Append "-" only if negative
             } else if (coefficient != 1 || power == 0) {
-              result.append(coefficient);
+              result.append(coefficient);  // Append coefficient if it's not 1 or if it's constant
             }
             isFirstTerm = false;
           } else {
-            // Subsequent terms: add " + " or " - " based on coefficient sign
             if (coefficient > 0) {
               result.append(" + ");
             } else {
               result.append(" - ");
             }
-
-            // Append absolute value of coefficient, except for 1 if power > 0
             if (Math.abs(coefficient) != 1 || power == 0) {
               result.append(Math.abs(coefficient));
             }
           }
 
-          // Append "x" and power if power > 0
+          // Append "x" and power correctly
           if (power > 0) {
             result.append("x");
-            if (power > 1) {
+            if (power > 1 || power == 1) {  // Include "^1" explicitly if power is 1
               result.append("^").append(power);
             }
           }
