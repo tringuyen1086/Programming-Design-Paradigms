@@ -31,6 +31,15 @@ package polynomial;
 interface PolynomialNode {
 
   /**
+   * Retrieves the next node in the polynomial linked list.
+   * This method is used to traverse the polynomial's linked list structure.
+   *
+   * @return the next {@code PolynomialNode} in the linked list,
+   *         or {@code null} if this is the last node.
+   */
+  PolynomialNode getNext();
+
+  /**
    * Adds another polynomial node to this node.
    *
    * @param other the node to add

@@ -93,7 +93,7 @@ public class PolynomialImplTest {
   @Test
   public void testSingleVariableTerm() {
     Polynomial poly = new PolynomialImpl("x");
-    assertEquals("1x", poly.toString());
+    assertEquals("x", poly.toString());
   }
 
   /**
@@ -181,7 +181,7 @@ public class PolynomialImplTest {
   @Test
   public void testTermOrderRetention() {
     Polynomial orderPoly = new PolynomialImpl("5 +4x -3x^2 +x^3 -2x^3");
-    assertEquals("-1x^3 - 3x^2 + 4x + 5", orderPoly.toString());
+    assertEquals("-x^3 - 3x^2 + 4x + 5", orderPoly.toString());
   }
 
   /**
@@ -201,7 +201,7 @@ public class PolynomialImplTest {
   @Test
   public void testNegativeVariableTerm() {
     Polynomial poly = new PolynomialImpl("-x^3");
-    assertEquals("-1x^3", poly.toString());
+    assertEquals("-x^3", poly.toString());
   }
 
   /**
@@ -267,7 +267,7 @@ public class PolynomialImplTest {
   @Test
   public void testDuplicateTermsSamePower() {
     Polynomial duplicatePowerPoly = new PolynomialImpl("3x^2 -4x^2 +5");
-    assertEquals("-1x^2 + 5", duplicatePowerPoly.toString());
+    assertEquals("-x^2 + 5", duplicatePowerPoly.toString());
   }
 
   /**
@@ -285,7 +285,7 @@ public class PolynomialImplTest {
   @Test
   public void testTwoDifferentTermsSamePower() {
     Polynomial samePowerPoly = new PolynomialImpl("3x^2 -4x^2");
-    assertEquals("-1x^2", samePowerPoly.toString());
+    assertEquals("-x^2", samePowerPoly.toString());
   }
 
   /**
@@ -294,7 +294,7 @@ public class PolynomialImplTest {
   @Test
   public void testDuplicateTermsAndOrder() {
     Polynomial duplicatePoly = new PolynomialImpl("+3x^4 -2x^5 -5 -2x^4 +11x^1");
-    assertEquals("-2x^5 + 1x^4 + 11x - 5", duplicatePoly.toString());
+    assertEquals("-2x^5 + x^4 + 11x - 5", duplicatePoly.toString());
   }
 
   /**
@@ -303,7 +303,7 @@ public class PolynomialImplTest {
   @Test
   public void testInputOrderRetentionWithSamePower() {
     Polynomial inputOrderPoly = new PolynomialImpl("+3x^4 -2x^5 -5 -2x^4 +11x^1");
-    assertEquals("-2x^5 + 1x^4 + 11x - 5", inputOrderPoly.toString());
+    assertEquals("-2x^5 + x^4 + 11x - 5", inputOrderPoly.toString());
   }
 
   /**
@@ -366,7 +366,7 @@ public class PolynomialImplTest {
     Polynomial poly1 = new PolynomialImpl("3x^2 -4x +7");
     Polynomial poly2 = new PolynomialImpl("5x^2 +3x -3");
     Polynomial result = poly1.add(poly2);
-    assertEquals("8x^2 - 1x + 4", result.toString());
+    assertEquals("8x^2 - x + 4", result.toString());
   }
 
   /**
@@ -572,7 +572,7 @@ public class PolynomialImplTest {
   @Test
   public void testAddTermWithNewHigherPower() {
     poly1.addTerm(1, 6); // Adds 1x^6
-    assertEquals("1x^6 + 4x^3 + 3x - 5", poly1.toString());
+    assertEquals("x^6 + 4x^3 + 3x - 5", poly1.toString());
   }
 
   /**
@@ -1235,7 +1235,7 @@ public class PolynomialImplTest {
   @Test
   public void testToStringWithDuplicatePowers() {
     Polynomial duplicatePowerPoly = new PolynomialImpl("3x^2 -2x^2 +5");
-    assertEquals("1x^2 + 5", duplicatePowerPoly.toString());
+    assertEquals("x^2 + 5", duplicatePowerPoly.toString());
   }
 
   /**

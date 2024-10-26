@@ -21,6 +21,35 @@ public class TermNode implements PolynomialNode {
     this.next = next;
   }
 
+  /**
+   * Returns the power (exponent) of this term.
+   *
+   * @return the power of the term
+   */
+  public int getPower() {
+    return this.power;
+  }
+
+  /**
+   * Returns the coefficient of this term.
+   *
+   * @return the coefficient of the term
+   */
+  public int getCoefficient() {
+    return this.coefficient;
+  }
+
+  /**
+   * Retrieves the subsequent node in the polynomial's linked list.
+   * This represents the next term in the polynomial, allowing traversal
+   * of the polynomial structure.
+   *
+   * @return the next {@code PolynomialNode} in the linked list, or {@code null} if this is the last node.
+   */
+  public PolynomialNode getNext() {
+    return this.next;
+  }
+
   @Override
   public PolynomialNode add(PolynomialNode other) {
     if (other instanceof EmptyNode) {

@@ -145,9 +145,56 @@ public class PolynomialImpl implements Polynomial {
   }
 
 
+  /**
+   * Returns a string representation of the polynomial in descending order of powers.
+   * The format for each term is "cx^p" where:
+   * - "c" represents the coefficient (omitted if 1 or -1 unless the power is 0),
+   * - "x^p" represents the variable "x" and the power "p" (excluded if power is 0).
+   * Terms are separated by " + " or " - " as appropriate, based on the sign of each coefficient.
+   * If the polynomial is empty or consists only of zero terms, this method returns "0".
+   *
+   * @return a string representation of the polynomial with terms in descending order of powers,
+   *         omitting any terms with a zero coefficient.
+   */
   @Override
   public String toString() {
-    String result = head.toString().trim();
-    return result.isEmpty() ? "0" : result;
+    StringBuilder result = new StringBuilder();
+    PolynomialNode currentNode = this.head;
+
+    boolean isFirstTerm = true;
+
+    while (!(currentNode instanceof EmptyNode)) {
+      if (currentNode instanceof TermNode) {
+        TermNode termNode = (TermNode) currentNode;
+        int coefficient = termNode.getCoefficient();
+        int power = termNode.getPower();
+
+        // Skip zero coefficients
+        if (coefficient != 0) {
+          if (!isFirstTerm) {
+            result.append(coefficient > 0 ? " + " : " - ");
+          } else if (coefficient < 0) {
+            result.append("-");
+          }
+
+          // Append coefficient if it's not ±1 unless the power is 0
+          if (Math.abs(coefficient) != 1 || power == 0) {
+            result.append(Math.abs(coefficient));
+          }
+
+          // Append 'x' and power if power > 0
+          if (power > 0) {
+            result.append("x");
+            if (power > 1) {
+              result.append("^").append(power);
+            }
+          }
+          isFirstTerm = false;
+        }
+      }
+      currentNode = currentNode.getNext();
+    }
+
+    return result.length() > 0 ? result.toString().trim() : "0";
   }
 }

@@ -13,6 +13,18 @@ public class EmptyNode implements PolynomialNode {
     // No parameters needed, as this is inherently an empty node.
   }
 
+  /**
+   * Returns the next node in the polynomial linked list.
+   * In the case of an {@code EmptyNode}, this represents the end of the list,
+   * so this method returns {@code null}.
+   *
+   * @return {@code null} as there is no next node after an {@code EmptyNode}.
+   */
+  @Override
+  public PolynomialNode getNext() {
+    return null;  // End of the list, so return null
+  }
+
   @Override
   public PolynomialNode add(PolynomialNode other) {
     // Adding anything to an empty polynomial returns the other polynomial.
