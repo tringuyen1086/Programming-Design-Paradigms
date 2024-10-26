@@ -53,7 +53,7 @@ public class PolynomialImplTest {
   }
 
   /**
-   * Tests an empty polynomial's behavior:
+   * Tests an empty polynomial's behavior.
    * Verifies its string representation is ""
    * Confirms getDegree() throws IllegalStateException
    */
@@ -65,7 +65,7 @@ public class PolynomialImplTest {
   }
 
   /**
-   * Tests the single-term constructor
+   * Tests the single-term constructor.
    * Verifies that the string representation is "5x^3"
    * and the coefficient for power 3 is 5
    */
@@ -814,19 +814,37 @@ public class PolynomialImplTest {
   public void testIsSameWithIncompatiblePolynomialType() {
     Polynomial incompatiblePoly = new Polynomial() {
       @Override
-      public Polynomial add(Polynomial poly) { return null; }
+      public Polynomial add(Polynomial poly) {
+        return null;
+      }
+
       @Override
       public void addTerm(int coefficient, int power) {}
+
       @Override
-      public boolean isSame(Polynomial poly) { return false; }
+      public boolean isSame(Polynomial poly) {
+        return false;
+      }
+
       @Override
-      public double evaluate(double x) { return 0; }
+      public double evaluate(double x) {
+        return 0;
+      }
+
       @Override
-      public int getCoefficient(int power) { return 0; }
+      public int getCoefficient(int power) {
+        return 0;
+
+      }
       @Override
-      public int getDegree() { return 0; }
+      public int getDegree() {
+        return 0;
+      }
+
       @Override
-      public String toString() { return "4x^3 +3x -5"; }
+      public String toString() {
+        return "4x^3 +3x -5";
+      }
     };
     assertFalse(poly1.isSame(incompatiblePoly));
   }
