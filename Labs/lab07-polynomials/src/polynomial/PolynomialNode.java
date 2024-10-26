@@ -2,23 +2,31 @@ package polynomial;
 
 /**
  * The PolynomialNode interface represents a node
- * in the recursive structure of a polynomial. Each node corresponds to a term
- * in the polynomial or an end marker (EmptyNode) to signify the end of the polynomial.
+ * in the recursive structure of a polynomial.
+ * Each node corresponds to a term in the polynomial
+ * or an end marker (EmptyNode) to signify the end of the polynomial.
  *
  * <p>Purpose:
- * This interface is essential for implementing a recursive union structure for polynomials,
- * as required by the assignment. The PolynomialNode interface manages the internal structure for
- * individual terms within the polynomial, allowing Polynomial to focus on high-level operations.
+ * This interface is essential for implementing
+ * a recursive union structure for polynomials,
+ * as required by the assignment.
+ * The PolynomialNode interface manages the internal structure for
+ * individual terms within the polynomial,
+ * allowing Polynomial to focus on high-level operations.
  *
  * <p>Importance:
- * PolynomialNode enables a recursive structure where each node can represent either a term
- * (represented by TermNode) or an end marker (represented by EmptyNode).
- * This setup delegates term-specific behavior (such as addition or evaluation) to nodes,
- * simplifying the overall implementation while adhering to recursive design principles.
+ * PolynomialNode enables a recursive structure
+ * where each node can represent either a term (represented by TermNode)
+ * or an end marker (represented by EmptyNode).
+ * This setup delegates term-specific behavior
+ * (such as addition or evaluation) to nodes,
+ * simplifying the overall implementation
+ * while adhering to recursive design principles.
  *
  * <p>Summary:
- * This interface enables PolynomialImpl to manage polynomial operations while delegating
- * term-specific behaviors to individual nodes. The result is a modular and recursive structure.
+ * This interface enables PolynomialImpl to manage polynomial operations
+ * while delegating term-specific behaviors to individual nodes.
+ * The result is a modular and recursive structure.
  */
 interface PolynomialNode {
 
@@ -59,7 +67,8 @@ interface PolynomialNode {
    * Retrieves the coefficient of the term with the specified power.
    *
    * @param power the power of the term to locate
-   * @return the coefficient of the term, or 0 if no term with the specified power exists
+   * @return the coefficient of the term,
+    or 0 if no term with the specified power exists
    */
   int getCoefficient(int power);
 

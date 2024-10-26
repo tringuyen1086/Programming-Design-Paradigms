@@ -30,19 +30,26 @@ public class TermNode implements PolynomialNode {
     TermNode otherTerm = (TermNode) other;
 
     if (this.power == otherTerm.power) {
-      // If the powers are equal, combine the coefficients and proceed to the next terms
+      // If the powers are equal,
+      // combine the coefficients and proceed to the next terms
       int newCoefficient = this.coefficient + otherTerm.coefficient;
       if (newCoefficient == 0) {
-        return this.next.add(otherTerm.next); // Skip this term if coefficient becomes 0
+        // Skip this term if coefficient becomes 0
+        return this.next.add(otherTerm.next);
       } else {
-        return new TermNode(newCoefficient, this.power, this.next.add(otherTerm.next));
+        return new TermNode(newCoefficient, this.power,
+                this.next.add(otherTerm.next));
       }
     } else if (this.power > otherTerm.power) {
-      // If this term's power is greater, keep it and move to the next in this polynomial
-      return new TermNode(this.coefficient, this.power, this.next.add(otherTerm));
+      // If this term's power is greater,
+      // keep it and move to the next in this polynomial
+      return new TermNode(this.coefficient, this.power,
+              this.next.add(otherTerm));
     } else {
-      // If other's term power is greater, keep other's term and move to the next in other
-      return new TermNode(otherTerm.coefficient, otherTerm.power, this.add(otherTerm.next));
+      // If other's term power is greater,
+      // keep other's term and move to the next in other
+      return new TermNode(otherTerm.coefficient, otherTerm.power,
+              this.add(otherTerm.next));
     }
   }
 
@@ -50,9 +57,11 @@ public class TermNode implements PolynomialNode {
   public PolynomialNode addTerm(int coefficient, int power) {
     if (this.power == power) {
       int newCoeff = this.coefficient + coefficient;
-      return (newCoeff == 0) ? this.next : new TermNode(newCoeff, this.power, this.next);
+      return (newCoeff == 0) ? this.next : new TermNode(newCoeff,
+              this.power, this.next);
     } else if (this.power > power) {
-      return new TermNode(this.coefficient, this.power, this.next.addTerm(coefficient, power));
+      return new TermNode(this.coefficient, this.power,
+              this.next.addTerm(coefficient, power));
     } else {
       return new TermNode(coefficient, power, this);
     }
@@ -62,12 +71,16 @@ public class TermNode implements PolynomialNode {
   public boolean isSame(PolynomialNode other) {
     if (!(other instanceof TermNode)) return false;
     TermNode that = (TermNode) other;
-    return this.coefficient == that.coefficient && this.power == that.power && this.next.isSame(that.next);
+    return this.coefficient == that.coefficient
+            && this.power == that.power
+            && this.next.isSame(that.next);
   }
 
   @Override
   public double evaluate(double x) {
-    return this.coefficient * Math.pow(x, this.power) + this.next.evaluate(x);
+    return this.coefficient
+            * Math.pow(x, this.power)
+            + this.next.evaluate(x);
   }
 
   @Override
@@ -77,7 +90,8 @@ public class TermNode implements PolynomialNode {
 
   @Override
   public int getDegree() {
-    // Return the current power if next node is EmptyNode, otherwise recurse.
+    // Return the current power if next node is EmptyNode,
+    // otherwise recurse.
     if (this.next instanceof EmptyNode) {
       return this.power;
     }

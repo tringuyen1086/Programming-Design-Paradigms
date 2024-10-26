@@ -1,6 +1,8 @@
 package polynomial;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class represents a polynomial as a recursive structure.
@@ -43,11 +45,14 @@ public class PolynomialImpl implements Polynomial {
   }
 
   /**
-   * Parses a polynomial term in the form of a string and returns an array containing the coefficient and power.
-   * The input term is expected to be in formats like "4x^3", "+x", "-5", "x", or constants.
+   * Parses a polynomial term in the form of a string
+   * and returns an array containing the coefficient and power.
+   * The input term is expected to be in formats
+   * like "4x^3", "+x", "-5", "x", or constants.
    *
    * @param term the string representation of the term
-   * @return an int array where the first element is the coefficient and the second is the power
+   * @return an int array where the first element is the coefficient
+    and the second is the power
    * @throws IllegalArgumentException if the term cannot be parsed
    */
   private int[] parseTerm(String term) {
@@ -137,6 +142,7 @@ public class PolynomialImpl implements Polynomial {
     }
     return this.head.getDegree();
   }
+
 
   @Override
   public String toString() {
