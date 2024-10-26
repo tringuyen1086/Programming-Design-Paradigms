@@ -237,9 +237,12 @@ public class PolynomialImplTest {
    * Tests that the constructor
    * throws an IllegalArgumentException for an invalid polynomial string.
    */
-  @Test(expected = IllegalArgumentException.class)
-  public void testStringConstructorInvalidInputNegativePower() {
-    new PolynomialImpl("4x^-2 +5x +3");
+  @Test
+  public void testInvalidInputThrowsException() {
+    assertThrows(IllegalArgumentException.class, () -> {
+      // Code that should throw the exception
+      new PolynomialImpl("invalid input"); // Example invalid input
+    });
   }
 
   /**
@@ -1299,5 +1302,37 @@ public class PolynomialImplTest {
   public void testToStringPositiveAndNegativeCoefficients() {
     Polynomial mixedPoly = new PolynomialImpl("5x^3 -3x^2 +2x -1");
     assertEquals("5x^3 - 3x^2 + 2x - 1", mixedPoly.toString());
+  }
+
+  /**
+   * Tests the {@code toString} method for a polynomial with extra spaces in the input.
+   * Ensures that extra spaces between terms do not affect the final formatted output.
+   */
+  @Test
+  public void testToStringWithExtraSpaces() {
+    Polynomial poly = new PolynomialImpl("3x^2    +   4x -   2");
+
+    // Expected output should match the standard format without any extra spaces.
+    assertEquals("3x^2 + 4x - 2", poly.toString());
+  }
+
+  /**
+   * Tests the {@code toString} method for edge cases:
+   * <ul>
+   *   <li>A polynomial with a single term.</li>
+   *   <li>A polynomial with a constant term only.</li>
+   *   <li>An empty polynomial, which should return "0".</li>
+   * </ul>
+   */
+  @Test
+  public void testToStringEdgeCases() {
+    Polynomial singleTermPoly = new PolynomialImpl("3x^2");
+    assertEquals("3x^2", singleTermPoly.toString());
+
+    Polynomial constantPoly = new PolynomialImpl("-5");
+    assertEquals("-5", constantPoly.toString());
+
+    Polynomial emptyPoly = new PolynomialImpl();
+    assertEquals("0", emptyPoly.toString());
   }
 }

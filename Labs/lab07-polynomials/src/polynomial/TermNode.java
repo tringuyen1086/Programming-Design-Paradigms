@@ -36,7 +36,7 @@ public class TermNode implements PolynomialNode {
    * of the polynomial structure.
    *
    * @return the next {@code PolynomialNode} in the linked list,
-    or {@code null} if this is the last node.
+   * or {@code null} if this is the last node.
    */
   public PolynomialNode getNext() {
     return this.next;
@@ -132,48 +132,23 @@ public class TermNode implements PolynomialNode {
 
   @Override
   public String toString() {
-    StringBuilder result = new StringBuilder();
+    StringBuilder term = new StringBuilder();
 
-    PolynomialNode currentNode = this;
-    boolean isFirstTerm = true;
-
-    while (!(currentNode instanceof EmptyNode)) {
-      if (currentNode instanceof TermNode) {
-        TermNode termNode = (TermNode) currentNode; // Cast to TermNode
-        int coefficient = termNode.coefficient; // Access coefficient directly
-        int power = termNode.power; // Access power directly
-
-        if (coefficient != 0) { // Skip terms with a zero coefficient
-          if (isFirstTerm) {
-            // Format the first term without leading space if it's negative
-            if (coefficient < 0) {
-              result.append("-").append(Math.abs(coefficient));
-            } else {
-              result.append(coefficient);
-            }
-            isFirstTerm = false;
-          } else {
-            // For subsequent terms, add " + " or " - " before the coefficient
-            if (coefficient > 0) {
-              result.append(" + ").append(coefficient);
-            } else {
-              result.append(" - ").append(Math.abs(coefficient));
-            }
-          }
-
-          // Append 'x' and exponent if power > 0
-          if (power > 0) {
-            result.append("x");
-            if (power > 1) {
-              result.append("^").append(power);
-            }
-          }
-        }
-        currentNode = termNode.next; // Move to the next node without getNext()
-      }
+    // First term handling for sign
+    if (coefficient < 0) {
+      term.append("-");
     }
 
-    // Return "0" if there are no terms or all terms have a zero coefficient
-    return result.length() > 0 ? result.toString().trim() : "0";
+    if (Math.abs(coefficient) != 1 || power == 0) {
+      term.append(Math.abs(coefficient));
+    }
+
+    if (power > 0) {
+      term.append("x");
+      if (power > 1) {
+        term.append("^").append(power);
+      }
+    }
+    return term.toString();
   }
 }
