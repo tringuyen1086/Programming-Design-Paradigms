@@ -69,7 +69,9 @@ public class TermNode implements PolynomialNode {
 
   @Override
   public boolean isSame(PolynomialNode other) {
-    if (!(other instanceof TermNode)) return false;
+    if (!(other instanceof TermNode)) {
+      return false;
+    }
     TermNode that = (TermNode) other;
     return this.coefficient == that.coefficient
             && this.power == that.power

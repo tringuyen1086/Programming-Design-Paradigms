@@ -65,20 +65,20 @@ public class PolynomialImpl implements Polynomial {
     int power;
 
     try {
-      if (term.equals("x") || term.equals("+x")) {
+      if (("x").equals(term) || ("+x").equals(term)) {
         // Term is "+x", meaning coefficient is 1 and power is 1
         coefficient = 1;
         power = 1;
-      } else if (term.equals("-x")) {
+      } else if (("-x").equals(term)) {
         // Term is "-x", meaning coefficient is -1 and power is 1
         coefficient = -1;
         power = 1;
       } else if (term.contains("x")) {
         // General case where the term contains "x"
-        int xIndex = term.indexOf('x');
-        String coeffPart = term.substring(0, xIndex).trim();
-        coefficient = coeffPart.isEmpty() || coeffPart.equals("+") ? 1 :
-                coeffPart.equals("-") ? -1 : Integer.parseInt(coeffPart);
+        int indexOfX = term.indexOf('x');
+        String coeffPart = term.substring(0, indexOfX).trim();
+        coefficient = coeffPart.isEmpty() || ("+").equals(coeffPart) ? 1 :
+                ("-").equals(coeffPart) ? -1 : Integer.parseInt(coeffPart);
 
         if (term.contains("^")) {
           power = Integer.parseInt(term.substring(term.indexOf('^') + 1).trim());
@@ -107,6 +107,7 @@ public class PolynomialImpl implements Polynomial {
     return result;
   }
 
+  @Override
   public void addTerm(int coefficient, int power) {
     if (power < 0) {
       throw new IllegalArgumentException("Power cannot be negative.");
